@@ -27,9 +27,9 @@ class MainActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.viewPager)
         indicator = findViewById(R.id.indicator)
 
-        data.add(SliderModel(Color.RED, "RED"))
-        data.add(SliderModel(Color.GREEN, "GREEN"))
-        data.add(SliderModel(Color.BLUE, "BLUE"))
+        data.add(SliderModel(Color.RED, "http://www.jssor.com/demos/img/gallery/980x380/010.jpg"))
+        data.add(SliderModel(Color.GREEN, "http://www.jssor.com/demos/img/gallery/980x380/001.jpg"))
+        data.add(SliderModel(Color.BLUE, "http://www.jssor.com/demos/img/gallery/980x380/002.jpg"))
 
         viewPager!!.adapter = SliderAdapter(this, data)
         indicator!!.setupWithViewPager(viewPager, true)
