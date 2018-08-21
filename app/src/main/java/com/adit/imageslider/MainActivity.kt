@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import com.adit.imageslider.adapter.SliderAdapter
+import com.adit.imageslider.model.SliderModel
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     var viewPager:ViewPager? = null
     var indicator:TabLayout? = null
 
-    val color = ArrayList<Int>()
+    val data = ArrayList<SliderModel>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,16 +27,11 @@ class MainActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.viewPager)
         indicator = findViewById(R.id.indicator)
 
-        color.add(Color.RED)
-        color.add(Color.GREEN)
-        color.add(Color.BLUE)
+        data.add(SliderModel(Color.RED, "RED"))
+        data.add(SliderModel(Color.GREEN, "GREEN"))
+        data.add(SliderModel(Color.BLUE, "BLUE"))
 
-        val colorName = ArrayList<String>()
-        colorName.add("RED")
-        colorName.add("GREEN")
-        colorName.add("BLUE")
-
-        viewPager!!.adapter = SliderAdapter(this, color, colorName)
+        viewPager!!.adapter = SliderAdapter(this, data)
         indicator!!.setupWithViewPager(viewPager, true)
 
         val timer = Timer()
@@ -47,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         override fun run() {
             runOnUiThread {
                 run{
-                    if (viewPager!!.currentItem < color.size - 1)
+                    if (viewPager!!.currentItem < data.size - 1)
                         viewPager!!.setCurrentItem(viewPager!!.currentItem + 1)
                     else
                         viewPager!!.setCurrentItem(0)
