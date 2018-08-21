@@ -7,6 +7,7 @@ import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import com.adit.imageslider.adapter.SliderAdapter
 import com.adit.imageslider.model.SliderModel
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
